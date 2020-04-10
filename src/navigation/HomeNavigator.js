@@ -8,7 +8,7 @@ import SettingsScreen from '../screens/settings/SettingsScreen';
 
 import { Ionicons } from 'react-native-vector-icons/Ionicons';
 
-import { TabBarComponent } from '../components/tabBarComponent';
+import { TabBarComponent } from '../components/TabBarComponent';
 
 const Tab = createBottomTabNavigator();
 
