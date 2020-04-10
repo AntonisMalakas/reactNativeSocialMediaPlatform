@@ -78,11 +78,11 @@ export default class RegisterScreen extends Component {
                             photo: "http://photourl.com/photo"
                         })
                         .catch(error => {
-                            console.log(error.message);
+                            // console.log(error.message);
                             ToastAndroid.show(error.message, ToastAndroid.LONG);
                         })
 
-                    console.log(userCredentials);
+                    // console.log(userCredentials);
                     ToastAndroid.show("Success", ToastAndroid.LONG)
 
 

@@ -50,11 +50,11 @@ export default class LoginScreen extends Component {
             // Action
             auth.signInWithEmailAndPassword(email, password)
                 .then(async data => {
-                    console.log(data)
+                    // console.log(data)
                     this.props.navigation.navigate("HomeNavigator")
                 })
                 .catch(error => {
-                    console.log(error.message);
+                    // console.log(error.message);
                     ToastAndroid.show(
                         error.message,
                         ToastAndroid.LONG,
