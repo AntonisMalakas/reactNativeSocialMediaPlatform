@@ -3,7 +3,11 @@ import { View, Text, TextInput, TouchableOpacity, StatusBar, ToastAndroid } from
 import { Thumbnail } from 'native-base'
 import { auth } from "../../config/Config"
 
+import ProfileHeaderComponent from '../../components/ProfileHeaderComponent';
+
 import styles from './SettingsScreenStyle';
+
+let profileImage = require('../../assets/img/male-18.png');
 
 export default class SettingsScreen extends Component {
     constructor(props) {
@@ -37,21 +41,28 @@ export default class SettingsScreen extends Component {
 
 
     render() {
-
         return (
-            <View style={styles.container}>
-                <View style={{ marginVertical: 100, alignItems: 'center' }}>
-                    <Text style={{ fontSize: 23 }}>
-                        {auth.currentUser.displayName}
-                    </Text>
-                    <Text style={{ fontSize: 18, marginBottom: 20 }}>
-                        {auth.currentUser.email}
-                    </Text>
-                    <TouchableOpacity onPress={this.onLogout}>
-                        <Text>Logout</Text>
-                    </TouchableOpacity>
-                </View>
-            </View >
+
+            <ProfileHeaderComponent
+                name={auth.currentUser.displayName}
+                email={auth.currentUser.email}
+                image={profileImage}
+                onTapProfile={() => alert('navigate to profile')}>
+
+            </ProfileHeaderComponent>
+            // <View style={styles.container}>
+            //     <View style={{ marginVertical: 100, alignItems: 'center' }}>
+            //         <Text style={{ fontSize: 23 }}>
+            //             {auth.currentUser.displayName}
+            //         </Text>
+            //         <Text style={{ fontSize: 18, marginBottom: 20 }}>
+            //             {auth.currentUser.email}
+            //         </Text>
+            //         <TouchableOpacity onPress={this.onLogout}>
+            //             <Text>Logout</Text>
+            //         </TouchableOpacity>
+            //     </View>
+            // </View >
 
         )
     }
