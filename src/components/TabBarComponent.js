@@ -7,6 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import { DefaultText } from '../baseComponent/defaultText';
 import { constStyle } from '../baseComponent/constStyle';
 
@@ -21,6 +23,12 @@ export function TabBarComponent({ state, descriptors, navigation }) {
                 <DefaultText text="Home" level={0} state={state.index == 0 ? 'active' : 'deactive'} />
             </TouchableOpacity>
 
+            <TouchableOpacity onPress={() => navigation.navigate('Groups')} style={[styles.tabItem]}>
+                <MaterialIcons name="group" size={25}
+                    color={state.index == 1 ? constStyle.baseColor : 'darkgrey'} />
+                <DefaultText text="Groups" level={0} state={state.index == 1 ? 'active' : 'deactive'} />
+            </TouchableOpacity>
+
             {/* <TouchableOpacity style={[styles.tabItem]} onPress={() => navigation.navigate('NewChat')}>
                 <View style={{ backgroundColor: constStyle.baseColor, width: 60, height: 60, borderRadius: 60 / 2, justifyContent: 'center', alignItems: 'center', bottom: 10 }}>
                     <Icon name="plus" size={30} color='white' />
@@ -28,8 +36,8 @@ export function TabBarComponent({ state, descriptors, navigation }) {
             </TouchableOpacity> */}
 
             <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={[styles.tabItem]}>
-                <Icon name="tools" size={25} color={state.index == 1 ? constStyle.baseColor : 'darkgrey'} />
-                <DefaultText text="Settings" level={0} state={state.index == 1 ? 'active' : 'deactive'} />
+                <Icon name="tools" size={25} color={state.index == 2 ? constStyle.baseColor : 'darkgrey'} />
+                <DefaultText text="Settings" level={0} state={state.index == 2 ? 'active' : 'deactive'} />
             </TouchableOpacity>
 
         </View>

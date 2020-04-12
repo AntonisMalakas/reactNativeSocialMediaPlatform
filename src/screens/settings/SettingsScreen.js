@@ -38,32 +38,14 @@ export default class SettingsScreen extends Component {
         });
     };
 
-
-
     render() {
         return (
-
             <ProfileHeaderComponent
                 name={auth.currentUser.displayName}
                 email={auth.currentUser.email}
                 image={profileImage}
                 onTapProfile={() => alert('navigate to profile')}>
-
             </ProfileHeaderComponent>
-            // <View style={styles.container}>
-            //     <View style={{ marginVertical: 100, alignItems: 'center' }}>
-            //         <Text style={{ fontSize: 23 }}>
-            //             {auth.currentUser.displayName}
-            //         </Text>
-            //         <Text style={{ fontSize: 18, marginBottom: 20 }}>
-            //             {auth.currentUser.email}
-            //         </Text>
-            //         <TouchableOpacity onPress={this.onLogout}>
-            //             <Text>Logout</Text>
-            //         </TouchableOpacity>
-            //     </View>
-            // </View >
-
         )
     }
 }

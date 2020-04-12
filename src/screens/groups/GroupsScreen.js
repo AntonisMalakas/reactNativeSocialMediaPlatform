@@ -3,9 +3,14 @@ import { View, Text, TextInput, TouchableOpacity, StatusBar, ToastAndroid } from
 import { Thumbnail } from 'native-base'
 import { auth } from "../../config/Config"
 
-import styles from './HomeScreenStyle';
+import { constStyle } from '../../baseComponent/constStyle';
 
-export default class HomeScreen extends Component {
+import styles from './GroupsScreenStyle';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+
+export default class GroupsScreen extends Component {
     constructor(props) {
         super(props);
         this._isMounted = false;
@@ -40,13 +45,18 @@ export default class HomeScreen extends Component {
 
         return (
             <View style={styles.container}>
+                <TouchableOpacity style={[styles.floatBtn, { right: 20 }]}>
+                    <Icon name="group-add" size={30} color={constStyle.baseColor} />
+                </TouchableOpacity>
+
                 <View style={{ marginVertical: 100, alignItems: 'center' }}>
 
+
                     <Text style={{ fontSize: 18, marginBottom: 20 }}>
-                        Home
+                        Groups
                     </Text>
                     <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center', marginLeft: 2, marginRight: 2 }}>
-                        Here will be displayed a list of recommendations for each group you are registered in
+                        Here will be displayed a list of the groups you are currently registered in
                     </Text>
 
                 </View>

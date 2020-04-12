@@ -3,7 +3,7 @@ export default StyleSheet.create({
     container: {
         backgroundColor: '#FFFFFF',
         flex: 1,
-        // width: '100%',
+        width: '100%',
 
     },
     logo: {
@@ -58,5 +58,16 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    floatBtn: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        width: 40,
+        height: 40,
+        borderRadius: 40 / 2,
+        position: 'absolute',
+        zIndex: 10,
+        top: 30
+    }
 
 })
