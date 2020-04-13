@@ -67,7 +67,7 @@ export default StyleSheet.create({
         borderRadius: 40 / 2,
         position: 'absolute',
         zIndex: 10,
-        top: 30
+        top: 10
     }
 
 })

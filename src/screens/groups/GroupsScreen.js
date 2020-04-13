@@ -9,6 +9,7 @@ import styles from './GroupsScreenStyle';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import GroupListComponent from '../../components/GroupListComponent';
 
 export default class GroupsScreen extends Component {
     constructor(props) {
@@ -40,6 +41,12 @@ export default class GroupsScreen extends Component {
     };
 
 
+    onItemTap(item) {
+        // nav.navigate('ChatRoom', { item: item })
+        alert('Item tapp');
+        console.log('item: ', item)
+    }
+
 
     render() {
 
@@ -49,18 +56,8 @@ export default class GroupsScreen extends Component {
                     <Icon name="group-add" size={30} color={constStyle.baseColor} />
                 </TouchableOpacity>
 
-                <View style={{ marginVertical: 50, alignItems: 'center' }}>
+                <GroupListComponent onItemTap={(item) => this.onItemTap(item)} ></GroupListComponent>
 
-
-                    <Text style={{ fontSize: 18, marginBottom: 20 }}>
-                        Groups
-                    </Text>
-                    <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center', marginLeft: 2, marginRight: 2 }}>
-                        Here will be displayed a list of the groups you are currently registered in
-                    </Text>
-
-                </View>
-                
             </View >
 
         )
