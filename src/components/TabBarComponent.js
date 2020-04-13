@@ -7,6 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import Feather from 'react-native-vector-icons/Feather';
+
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { DefaultText } from '../baseComponent/defaultText';
@@ -24,7 +26,7 @@ export function TabBarComponent({ state, descriptors, navigation }) {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate('Groups')} style={[styles.tabItem]}>
-                <MaterialIcons name="group" size={25}
+                <Feather name="users" size={25}
                     color={state.index == 1 ? constStyle.baseColor : 'darkgrey'} />
                 <DefaultText text="Groups" level={0} state={state.index == 1 ? 'active' : 'deactive'} />
             </TouchableOpacity>
@@ -35,9 +37,9 @@ export function TabBarComponent({ state, descriptors, navigation }) {
                 </View>
             </TouchableOpacity> */}
 
-            <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={[styles.tabItem]}>
-                <Icon name="tools" size={25} color={state.index == 2 ? constStyle.baseColor : 'darkgrey'} />
-                <DefaultText text="Settings" level={0} state={state.index == 2 ? 'active' : 'deactive'} />
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={[styles.tabItem]}>
+                <Feather name="user" size={25} color={state.index == 2 ? constStyle.baseColor : 'darkgrey'} />
+                <DefaultText text="Profile" level={0} state={state.index == 2 ? 'active' : 'deactive'} />
             </TouchableOpacity>
 
         </View>

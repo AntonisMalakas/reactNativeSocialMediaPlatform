@@ -5,11 +5,11 @@ import { auth } from "../../config/Config"
 
 import ProfileHeaderComponent from '../../components/ProfileHeaderComponent';
 
-import styles from './SettingsScreenStyle';
+import styles from './ProfileScreenStyle';
 
 let profileImage = require('../../assets/img/male-18.png');
 
-export default class SettingsScreen extends Component {
+export default class ProfileScreen extends Component {
     constructor(props) {
         super(props);
         this._isMounted = false;
@@ -37,28 +37,15 @@ export default class SettingsScreen extends Component {
             visible: false,
         });
     };
-    
+
     render() {
         return (
-
-            <View style={styles.container}>
-                <View style={{ marginVertical: 100, alignItems: 'center' }}>
-
-                    <Text style={{ fontSize: 18, marginBottom: 20 }}>
-                        Settings
-                </Text>
-                    <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center', marginLeft: 2, marginRight: 2 }}>
-                        Here will be displayed a list of settings for your profile
-                </Text>
-
-                </View>
-            </View >
-            // <ProfileHeaderComponent
-            //     name={auth.currentUser.displayName}
-            //     email={auth.currentUser.email}
-            //     image={profileImage}
-            //     onTapProfile={() => alert('navigate to profile')}>
-            // </ProfileHeaderComponent>
+            <ProfileHeaderComponent
+                name={auth.currentUser.displayName}
+                email={auth.currentUser.email}
+                image={profileImage}
+                onTapProfile={() => this.props.navigation.navigate("Settings")}>
+            </ProfileHeaderComponent>
         )
     }
 }

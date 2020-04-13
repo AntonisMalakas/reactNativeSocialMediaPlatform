@@ -49,7 +49,7 @@ export default class GroupsScreen extends Component {
                     <Icon name="group-add" size={30} color={constStyle.baseColor} />
                 </TouchableOpacity>
 
-                <View style={{ marginVertical: 100, alignItems: 'center' }}>
+                <View style={{ marginVertical: 50, alignItems: 'center' }}>
 
 
                     <Text style={{ fontSize: 18, marginBottom: 20 }}>
@@ -60,6 +60,7 @@ export default class GroupsScreen extends Component {
                     </Text>
 
                 </View>
+                
             </View >
 
         )
