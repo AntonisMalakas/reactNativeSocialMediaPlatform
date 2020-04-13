@@ -6,6 +6,12 @@ import { auth } from "../../config/Config"
 import ProfileHeaderComponent from '../../components/ProfileHeaderComponent';
 
 import styles from './SettingsScreenStyle';
+import { constStyle } from '../../baseComponent/constStyle';
+import { DefaultText } from '../../baseComponent/defaultText';
+import Icon from 'react-native-vector-icons/Entypo';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+
+
 
 let profileImage = require('../../assets/img/male-18.png');
 
@@ -37,7 +43,7 @@ export default class SettingsScreen extends Component {
             visible: false,
         });
     };
-    
+
     render() {
         return (
 
@@ -52,6 +58,35 @@ export default class SettingsScreen extends Component {
                 </Text>
 
                 </View>
+
+                <TouchableOpacity style={{
+                    backgroundColor: 'aliceblue', padding: 10, flexDirection: 'row',
+                    marginBottom: 5
+                }}>
+                    <SimpleLineIcons name="support" size={20} color={constStyle.baseColor} />
+                    <View style={{ flex: 1, marginHorizontal: 5 }}>
+                        <DefaultText text="Some Text" level={2} />
+                    </View>
+                    <TouchableOpacity>
+                        <SimpleLineIcons name="arrow-right" size={20} color={constStyle.baseColor} />
+                    </TouchableOpacity>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{
+                    backgroundColor: 'aliceblue', padding: 10, flexDirection: 'row',
+                    marginBottom: 5
+                }}
+                    onPress={() => alert('logout pressed')}>
+                    <SimpleLineIcons name="logout" size={20} color={constStyle.baseColor} />
+                    <View style={{ flex: 1, marginHorizontal: 5 }}>
+                        <DefaultText text="Logout" level={2} />
+                    </View>
+                    <TouchableOpacity>
+                        <SimpleLineIcons name="arrow-right" size={20} color={constStyle.baseColor} />
+                    </TouchableOpacity>
+                </TouchableOpacity>
+
+
             </View >
             // <ProfileHeaderComponent
             //     name={auth.currentUser.displayName}
