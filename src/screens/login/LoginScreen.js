@@ -50,7 +50,7 @@ export default class LoginScreen extends Component {
             // Action
             auth.signInWithEmailAndPassword(email, password)
                 .then(async data => {
-                    // console.log(data)
+                    // console.log('displayName: ', data.user.displayName)
                     this.props.navigation.navigate("HomeNavigator")
                 })
                 .catch(error => {

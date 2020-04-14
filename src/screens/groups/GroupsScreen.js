@@ -43,8 +43,8 @@ export default class GroupsScreen extends Component {
 
     onItemTap(item) {
         // nav.navigate('ChatRoom', { item: item })
-        alert('Item tapp');
         console.log('item: ', item)
+        this.props.navigation.navigate('ChatRoom', { item: item })
     }
 
 

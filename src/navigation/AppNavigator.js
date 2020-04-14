@@ -8,6 +8,7 @@ import RegisterScreen from '../screens/register/RegisterScreen';
 
 import HomeNavigator from '../navigation/HomeNavigator';
 
+import { ChatRoomScreen } from '../screens/chatRoom/ChatRoomScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,9 +30,15 @@ class AppNavigator extends Component {
                         })} />
 
                     <Stack.Screen name="HomeNavigator" component={HomeNavigator}
-                    options={({ navigation, route }) => ({
-                        headerShown: false
-                    })}
+                        options={({ navigation, route }) => ({
+                            headerShown: false
+                        })}
+                    />
+
+                    <Stack.Screen name="ChatRoom" component={ChatRoomScreen}
+                    // options={({ navigation, route }) => ({
+                    //     headerShown: false
+                    // })}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
