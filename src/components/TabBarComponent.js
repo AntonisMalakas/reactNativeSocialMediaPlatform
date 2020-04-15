@@ -21,12 +21,12 @@ export function TabBarComponent({ state, descriptors, navigation }) {
         <View style={[styles.tabContainer, constStyle.shadow.depth4]}>
 
             <TouchableOpacity onPress={() => navigation.navigate('Home')} style={[styles.tabItem]}>
-                <Icon name="home" size={25} color={state.index == 0 ? constStyle.baseColor : 'darkgrey'} />
+                <MaterialIcons name="home" size={25} color={state.index == 0 ? constStyle.baseColor : 'darkgrey'} />
                 <DefaultText text="Home" level={0} state={state.index == 0 ? 'active' : 'deactive'} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate('Groups')} style={[styles.tabItem]}>
-                <Feather name="users" size={25}
+                <MaterialIcons name="group" size={25}
                     color={state.index == 1 ? constStyle.baseColor : 'darkgrey'} />
                 <DefaultText text="Groups" level={0} state={state.index == 1 ? 'active' : 'deactive'} />
             </TouchableOpacity>
@@ -38,7 +38,7 @@ export function TabBarComponent({ state, descriptors, navigation }) {
             </TouchableOpacity> */}
 
             <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={[styles.tabItem]}>
-                <Feather name="user" size={25} color={state.index == 2 ? constStyle.baseColor : 'darkgrey'} />
+                <MaterialIcons name="person" size={25} color={state.index == 2 ? constStyle.baseColor : 'darkgrey'} />
                 <DefaultText text="Profile" level={0} state={state.index == 2 ? 'active' : 'deactive'} />
             </TouchableOpacity>
 

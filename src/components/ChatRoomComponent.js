@@ -281,6 +281,8 @@ export default class ChatRoomComponent extends React.Component {
                     })}
                     keyExtractor={(item, index) => index}
                     getItemLayout={this._getItemLayout}
+                    // onContentSizeChange={() => this.flatList.scrollToEnd({animated: true})}
+                    // onLayout={() => this.flatList.scrollToEnd({animated: true})}
                 />
 
                 <View style={[styles.textBoxContainer, constStyle.shadow.depth2]}>
