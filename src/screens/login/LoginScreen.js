@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StatusBar, ToastAndroid } from 'react-native'
 import { Thumbnail } from 'native-base'
-import { auth } from "../../config/Config"
 
 import styles from './LoginScreenStyle';
+
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
 
 export default class LoginScreen extends Component {
     constructor(props) {
@@ -22,6 +25,20 @@ export default class LoginScreen extends Component {
 
     componentDidMount() {
         this._isMounted = true;
+        // const ref = firestore().collection('users');
+        // ref.onSnapshot(querySnapshot => {
+        //   console.log('hoooray!')
+        //   const list = [];
+        //   querySnapshot.forEach(doc => {
+        //     const { name, email, mobile } = doc.data();
+        //     list.push({
+        //       id: doc.id,
+        //       name,
+        //       email,
+        //       mobile
+        //     });
+        //   });
+        // });
     };
 
     componentWillUnmount() {
@@ -48,7 +65,7 @@ export default class LoginScreen extends Component {
             );
         } else {
             // Action
-            auth.signInWithEmailAndPassword(email, password)
+            auth().signInWithEmailAndPassword(email, password)
                 .then(async data => {
                     // console.log('displayName: ', data.user.displayName)
                     this.props.navigation.navigate("HomeNavigator")

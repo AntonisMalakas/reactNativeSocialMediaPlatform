@@ -13,7 +13,8 @@ import {
     ToastAndroid,
 } from 'react-native';
 import { Thumbnail } from 'native-base'
-import { auth, db } from '../../config/Config'
+
+import auth from '@react-native-firebase/auth';
 
 import styles from './RegisterScreenStyle';
 
@@ -66,38 +67,57 @@ export default class RegisterScreen extends Component {
             );
         } else {
             // Action
-            await auth.createUserWithEmailAndPassword(email, password)
-                .then(async userCredentials => {
-
-                    db.ref('/user/' + userCredentials.user.uid)
-                        .set({
-                            uid: userCredentials.user.uid,
-                            name: this.state.name,
-                            status: 'Online',
-                            email: this.state.email,
-                            photo: "http://photourl.com/photo"
-                        })
-                        .catch(error => {
-                            // console.log(error.message);
-                            ToastAndroid.show(error.message, ToastAndroid.LONG);
-                        })
-
-                    // console.log(userCredentials);
+            await auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    // console.log('User account created & signed in!');
                     ToastAndroid.show("Success", ToastAndroid.LONG)
+                    this.props.navigation.navigate("Login")
 
 
-                    if (userCredentials.user) {
-                        userCredentials.user.updateProfile({
-                            displayName: this.state.name,
-                            photoURL: "http://linkphoto.com"
-                        }).then((s) => {
-                            this.props.navigation.navigate("Login")
-                        })
-                    }
                 })
                 .catch(error => {
-                    ToastAndroid.show(error.message, ToastAndroid.LONG)
-                })
+                    ToastAndroid.show(error.message, ToastAndroid.LONG);
+                    // if (error.code === 'auth/email-already-in-use') {
+                    //     console.log('That email address is already in use!');
+                    // }
+                    // if (error.code === 'auth/invalid-email') {
+                    //     console.log('That email address is invalid!');
+                    // }
+                });
+
+            // await auth.createUserWithEmailAndPassword(email, password)
+            //     .then(async userCredentials => {
+
+            //         db.ref('/user/' + userCredentials.user.uid)
+            //             .set({
+            //                 uid: userCredentials.user.uid,
+            //                 name: this.state.name,
+            //                 status: 'Online',
+            //                 email: this.state.email,
+            //                 photo: "http://photourl.com/photo"
+            //             })
+            //             .catch(error => {
+            //                 // console.log(error.message);
+            //                 ToastAndroid.show(error.message, ToastAndroid.LONG);
+            //             })
+
+            //         // console.log(userCredentials);
+            //         ToastAndroid.show("Success", ToastAndroid.LONG)
+
+
+            //         if (userCredentials.user) {
+            //             userCredentials.user.updateProfile({
+            //                 displayName: this.state.name,
+            //                 photoURL: "http://linkphoto.com"
+            //             }).then((s) => {
+            //                 this.props.navigation.navigate("Login")
+            //             })
+            //         }
+            //     })
+            //     .catch(error => {
+            //         ToastAndroid.show(error.message, ToastAndroid.LONG)
+            //     })
 
         }
     }

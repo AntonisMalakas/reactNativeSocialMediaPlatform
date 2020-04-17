@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StatusBar, ToastAndroid } from 'react-native'
 import { Thumbnail } from 'native-base'
-import { auth } from "../../config/Config"
 
 import { constStyle } from '../../baseComponent/constStyle';
 

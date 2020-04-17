@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, TouchableOpacity, StatusBar, ToastAndroid } from 'react-native'
 import { Thumbnail } from 'native-base'
-import { auth } from "../../config/Config"
+import auth from '@react-native-firebase/auth';
 
 import ProfileHeaderComponent from '../../components/ProfileHeaderComponent';
 
@@ -41,8 +41,8 @@ export default class ProfileScreen extends Component {
     render() {
         return (
             <ProfileHeaderComponent
-                name={auth.currentUser.displayName}
-                email={auth.currentUser.email}
+                name={auth().currentUser.displayName}
+                email={auth().currentUser.email}
                 image={profileImage}
                 onTapProfile={() => this.props.navigation.navigate("Settings")}>
             </ProfileHeaderComponent>

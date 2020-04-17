@@ -22,7 +22,7 @@ import { DefaultText } from '../baseComponent/defaultText';
 import { constStyle } from '../baseComponent/constStyle';
 // import store from '../Source/store';
 // import actions from '../Source/actions';
-import { auth } from "../config/Config"
+// import { auth } from "../config/Config"
 
 
 
@@ -96,7 +96,7 @@ export default class ChatRoomComponent extends React.Component {
 
 
     componentDidMount() {
-        let displayName = auth.currentUser.displayName;
+        let displayName = 'alika';///auth.currentUser.displayName;
         this.setState({ username: displayName });
         const contex = this;
         this._loadData()
@@ -281,8 +281,8 @@ export default class ChatRoomComponent extends React.Component {
                     })}
                     keyExtractor={(item, index) => index}
                     getItemLayout={this._getItemLayout}
-                    // onContentSizeChange={() => this.flatList.scrollToEnd({animated: true})}
-                    // onLayout={() => this.flatList.scrollToEnd({animated: true})}
+                // onContentSizeChange={() => this.flatList.scrollToEnd({animated: true})}
+                // onLayout={() => this.flatList.scrollToEnd({animated: true})}
                 />
 
                 <View style={[styles.textBoxContainer, constStyle.shadow.depth2]}>

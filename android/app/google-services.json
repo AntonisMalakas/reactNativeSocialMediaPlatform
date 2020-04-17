@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "83640803082",
+    "firebase_url": "https://firestoreapptest-b6164.firebaseio.com",
+    "project_id": "firestoreapptest-b6164",
+    "storage_bucket": "firestoreapptest-b6164.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83640803082:android:9afd5a44a1bb40eb7fe4f3",
+        "android_client_info": {
+          "package_name": "com.navigator2app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83640803082-de0tobqhf63l4ui78evsu7lbo6rl9k5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6HhsHeNrzbKLY9yvdR-2ycfxZGnru5fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83640803082-de0tobqhf63l4ui78evsu7lbo6rl9k5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83640803082:android:51d5d4857aed1cdb7fe4f3",
+        "android_client_info": {
+          "package_name": "com.testfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83640803082-de0tobqhf63l4ui78evsu7lbo6rl9k5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6HhsHeNrzbKLY9yvdR-2ycfxZGnru5fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83640803082-de0tobqhf63l4ui78evsu7lbo6rl9k5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83640803082:android:8b1b7085976de4b07fe4f3",
+        "android_client_info": {
+          "package_name": "com.testvectorfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83640803082-de0tobqhf63l4ui78evsu7lbo6rl9k5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6HhsHeNrzbKLY9yvdR-2ycfxZGnru5fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83640803082-de0tobqhf63l4ui78evsu7lbo6rl9k5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
