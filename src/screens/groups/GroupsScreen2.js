@@ -4,6 +4,10 @@ import GroupItem from '../../components/GroupsItems'
 
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import { constStyle } from '../../baseComponent/constStyle';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 function GroupsScreen2({ navigation }) {
     const [groups, setGroups] = useState([])
@@ -39,9 +43,16 @@ function GroupsScreen2({ navigation }) {
 
     }
 
+    function handleAddGroup() {
+        navigation.navigate('AddGroup')
+    }
+
 
     return (
         <View style={styles.container}>
+            <TouchableOpacity style={[styles.floatBtn, { right: 20 }]} onPress={() => handleAddGroup()}>
+                <Icon name="group-add" size={30} color={constStyle.baseColor} />
+            </TouchableOpacity>
             <FlatList
                 data={groups}
                 keyExtractor={(item, index) => 'key' + index}
