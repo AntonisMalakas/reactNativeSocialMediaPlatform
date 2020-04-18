@@ -59,7 +59,7 @@ function GroupsScreen2({ navigation }) {
                 renderItem={({ item }) => {
                     return (
                         <TouchableOpacity onPress={() => {
-                            navigation.navigate('Chat Screen', {
+                            navigation.navigate('ChatRoom', {
                                 item
                             })
                         }}>

@@ -9,6 +9,7 @@ import RegisterScreen from '../screens/register/RegisterScreen';
 import HomeNavigator from '../navigation/HomeNavigator';
 
 import { ChatRoomScreen } from '../screens/chatRoom/ChatRoomScreen';
+import ChatScreen from '../screens/chatRoom/ChatScreen';
 
 import AddGroupScreen from '../screens/addGroup/AddGroupScreen';
 
@@ -37,7 +38,12 @@ class AppNavigator extends Component {
                         })}
                     />
 
-                    <Stack.Screen name="ChatRoom" component={ChatRoomScreen}
+                    {/* <Stack.Screen name="ChatRoom" component={ChatRoomScreen}
+                    // options={({ navigation, route }) => ({
+                    //     headerShown: false
+                    // })}
+                    /> */}
+                    <Stack.Screen name="ChatRoom" component={ChatScreen}
                     // options={({ navigation, route }) => ({
                     //     headerShown: false
                     // })}
