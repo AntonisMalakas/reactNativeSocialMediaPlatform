@@ -10,6 +10,8 @@ import HomeNavigator from '../navigation/HomeNavigator';
 
 import { ChatRoomScreen } from '../screens/chatRoom/ChatRoomScreen';
 
+import AddGroupScreen from '../screens/addGroup/AddGroupScreen';
+
 const Stack = createStackNavigator();
 
 
@@ -40,6 +42,12 @@ class AppNavigator extends Component {
                     //     headerShown: false
                     // })}
                     />
+                    <Stack.Screen name="AddGroup" component={AddGroupScreen}
+                    // options={({ navigation, route }) => ({
+                    //     headerShown: false
+                    // })}
+                    />
+
                 </Stack.Navigator>
             </NavigationContainer>
         )

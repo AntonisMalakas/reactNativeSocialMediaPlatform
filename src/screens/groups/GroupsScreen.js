@@ -46,12 +46,15 @@ export default class GroupsScreen extends Component {
         this.props.navigation.navigate('ChatRoom', { item: item })
     }
 
+    handleAddGroup = () => {
+        this.props.navigation.navigate('AddGroup')
+    }
 
     render() {
 
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={[styles.floatBtn, { right: 20 }]}>
+                <TouchableOpacity style={[styles.floatBtn, { right: 20 }]} onPress={this.handleAddGroup}>
                     <Icon name="group-add" size={30} color={constStyle.baseColor} />
                 </TouchableOpacity>
 
