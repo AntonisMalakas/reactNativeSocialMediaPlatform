@@ -20,7 +20,7 @@ class HomeNavigator extends Component {
         return (
             <Tab.Navigator tabBar={props => <TabBarComponent {...props} />}>
                 <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="Groups" component={GroupsScreen2} />
+                <Tab.Screen name="Groups" component={GroupsScreen} />
                 <Tab.Screen name="Profile" component={ProfileNavigator} />
             </Tab.Navigator>
         )

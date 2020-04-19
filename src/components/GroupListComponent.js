@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState, useEffect } from 'react'
 import {
     SafeAreaView,
     StyleSheet,
@@ -13,15 +13,15 @@ import {
 } from 'react-native';
 import { DefaultText } from '../baseComponent/defaultText';
 
-import { groupData } from '../sample';
+
+import firestore from '@react-native-firebase/firestore';
+import { useNavigation } from '@react-navigation/native';
 
 let profileImage = require('../assets/img/male-18.png');
 
-
-function listItem(data, props) {
+function ListItem({ data }) {
     return (
-        <TouchableOpacity style={{ flexDirection: 'row', padding: 10 }} onPress={() => props(data.item)}>
-
+        <View style={{ flexDirection: 'row', paddingTop: 10 }}>
             {/* <View style={[styles.onlineIndicator, {
                 backgroundColor: data.item.online ? 'limegreen' : 'lightgrey'
             }]}>
@@ -36,7 +36,7 @@ function listItem(data, props) {
 
             <View style={styles.contentWrapper}>
                 <View style={{ flex: 1 }}>
-                    <DefaultText text={data.item.name} level={2} />
+                    <DefaultText text={data.item.groupName} level={2} />
                     {/* <Text style={{ color: 'darkgrey', fontSize: 13 }} numberOfLines={2}>
                         {data.item.chat[0].message}
                     </Text> */}
@@ -46,10 +46,9 @@ function listItem(data, props) {
                 </View>
 
                 {/* <DefaultText text={data.item.chat[0].time} level={0} /> */}
-                <DefaultText text='Haloo' level={0} />
+                {/* <DefaultText text='Haloo' level={0} /> */}
             </View>
-
-        </TouchableOpacity>
+        </View>
     )
 }
 
@@ -59,30 +58,60 @@ function listSeparator() {
     )
 }
 
-export default class GroupListComponent extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            groupData: []
-        }
-    }
-    componentDidMount() {
-        this.setState({ groupData: groupData })
+
+function GroupListComponent() {
+    const navigation = useNavigation();
+    const [groups, setGroups] = useState([])
+
+    useLayoutEffect(() => {
+    })
+
+    useEffect(() => {
+        getChats()
+    }, [])
+
+    function getChats() {
+        const db = firestore()
+        var groupArray = []
+
+        db.collection("groups")
+            .onSnapshot(function (snapshot) {
+                snapshot.docChanges().forEach(function (change) {
+                    if (change.type == "added") {
+                        console.log("New Group: ", change.doc.data())
+                        groupArray.push(change.doc.data())
+                    }
+                    if (change.type === "modified") {
+                        console.log("Modified Group: ", change.doc.data())
+                    }
+                    if (change.type === "removed") {
+                        console.log("Removed Group", change.doc.data())
+                    }
+                    setGroups(groupArray)
+                })
+            })
     }
 
-    render() {
-        return (
-            <SafeAreaView style={{ backgroundColor: 'white', flex: 1, marginVertical: 50 }}>
-
-                <FlatList
-                    data={groupData}
-                    renderItem={item => listItem(item, this.props.onItemTap)}
-                    style={styles.flatlistStyle}
-                    keyExtractor={item => item.id}
-                />
-            </SafeAreaView>
-        )
-    };
+    return (
+        <SafeAreaView style={{ backgroundColor: 'white', flex: 1, marginVertical: 50 }}>
+            <FlatList
+                data={groups}
+                renderItem={item => {
+                    return (
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate('ChatRoom', {
+                                item
+                            })
+                        }}>
+                            <ListItem data={item}></ListItem>
+                        </TouchableOpacity>
+                    )
+                }}
+                style={styles.flatlistStyle}
+                keyExtractor={(item, index) => 'key' + index}
+            />
+        </SafeAreaView>
+    )
 }
 
 
@@ -121,3 +150,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     }
 });
+
+export default GroupListComponent

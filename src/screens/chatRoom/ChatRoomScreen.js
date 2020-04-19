@@ -10,7 +10,7 @@ import ChatRoomComponent from '../../components/ChatRoomComponent';
 // }
 
 export function ChatRoomScreen({ route, navigation }) {
-    console.log('rom chat room item: ', route.params.item)
+    // console.log('rom chat room item: ', route.params.item)
 
     return (
         <ChatRoomComponent

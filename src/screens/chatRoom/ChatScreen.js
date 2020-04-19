@@ -15,8 +15,8 @@ function ChatScreen({ route, navigation }) {
     const [message, setMessage] = useState('')
     const [isJoined, setIsJoined] = useState(false)
 
-    const { item } = route.params
-    const userID = auth().currentUser.uid
+    const { item } = route.params.item;
+    const userID = auth().currentUser.uid;
 
     useEffect(() => {
         console.log(item)
@@ -121,44 +121,40 @@ function ChatScreen({ route, navigation }) {
 
 
     return (
-        <DismissKeyboard>
-            <KeyboardAvoidingView style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }}
-                behavior="padding" enabled keyboardVerticalOffset={100}>
-                <View style={styles.container}>
-                    <FlatList
-                        style={styles.flatList}
-                        data={messageList}
-                        keyExtractor={(item, index) => 'key' + index}
-                        renderItem={({ item }) => {
-                            return (
-                                <TouchableOpacity onPress={() => {
 
-                                }}>
+        <View style={styles.container}>
+            <FlatList
+                style={styles.flatList}
+                data={messageList}
+                keyExtractor={(item, index) => 'key' + index}
+                renderItem={({ item }) => {
+                    return (
+                        <TouchableOpacity onPress={() => {
 
-                                    <MessageItem item={item} />
-                                </TouchableOpacity>
-                            )
-                        }}
-                    />
+                        }}>
 
-                    <View style={styles.messageFieldView}>
-                        <MessageFieldView term={message}
-                            placeHolder={Strings.typeYourMessage}
-                            onTermChange={message => setMessage(message)}
-                            onSubmit={sendMessagesToChat}
-                        >
+                            <MessageItem item={item} />
+                        </TouchableOpacity>
+                    )
+                }}
+            />
 
-                        </MessageFieldView>
+            <View style={styles.messageFieldView}>
+                <MessageFieldView term={message}
+                    placeHolder={Strings.typeYourMessage}
+                    onTermChange={message => setMessage(message)}
+                    onSubmit={sendMessagesToChat}
+                >
 
-                    </View>
+                </MessageFieldView>
+
+            </View>
 
 
 
-                </View>
+        </View>
 
-            </KeyboardAvoidingView>
 
-        </DismissKeyboard>
     )
 }
 

@@ -40,11 +40,11 @@ export default class GroupsScreen extends Component {
     };
 
 
-    onItemTap(item) {
-        // nav.navigate('ChatRoom', { item: item })
-        console.log('item: ', item)
-        this.props.navigation.navigate('ChatRoom', { item: item })
-    }
+    // onItemTap(item) {
+    //     // nav.navigate('ChatRoom', { item: item })
+    //     console.log('item: ', item)
+    //     this.props.navigation.navigate('ChatRoom', { item: item })
+    // }
 
     handleAddGroup = () => {
         this.props.navigation.navigate('AddGroup')
@@ -58,7 +58,7 @@ export default class GroupsScreen extends Component {
                     <Icon name="group-add" size={30} color={constStyle.baseColor} />
                 </TouchableOpacity>
 
-                <GroupListComponent onItemTap={(item) => this.onItemTap(item)} ></GroupListComponent>
+                <GroupListComponent  ></GroupListComponent>
 
             </View >
 
