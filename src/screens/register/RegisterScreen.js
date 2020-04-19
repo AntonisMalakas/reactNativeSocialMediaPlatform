@@ -69,12 +69,17 @@ export default class RegisterScreen extends Component {
             // Action
             await auth()
                 .createUserWithEmailAndPassword(email, password)
-                .then(() => {
-                    // console.log('User account created & signed in!');
-                    ToastAndroid.show("Success", ToastAndroid.LONG)
-                    this.props.navigation.navigate("Login")
+                .then((userData) => {
+                    userData.user.updateProfile({
+                        displayName: name
+                    }).then(() => {
+                        // console.log('User account created & signed in!');
+                        ToastAndroid.show("Success", ToastAndroid.LONG)
+                        this.props.navigation.navigate("Login")
+                    }).catch(error => {
+                        ToastAndroid.show(error.message, ToastAndroid.LONG);
 
-
+                    });
                 })
                 .catch(error => {
                     ToastAndroid.show(error.message, ToastAndroid.LONG);
