@@ -45,7 +45,7 @@ export default class HomeScreen extends Component {
                         Home
                     </Text>
                     <Text style={{ fontSize: 18, marginBottom: 20, textAlign: 'center', marginLeft: 2, marginRight: 2 }}>
-                        Here will be displayed a list of recommendations for each group you are registered in
+                        Here will be displayed a list
                     </Text>
 
                 </View>
